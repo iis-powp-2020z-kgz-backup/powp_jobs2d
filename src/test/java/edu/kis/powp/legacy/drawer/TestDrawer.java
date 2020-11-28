@@ -14,6 +14,7 @@ public class TestDrawer {
 	/**
 	 * Drawer test.
 	 */
+
 	public static void main(String[] args) {
 		DrawPanelController controller = new DrawPanelController();
 		DefaultDrawerFrame.getDefaultDrawerFrame().setVisible(true);
@@ -22,4 +23,6 @@ public class TestDrawer {
 		line.setEndCoordinates(60, 130);
 		controller.drawLine(line);
 	}
+
+
 }
