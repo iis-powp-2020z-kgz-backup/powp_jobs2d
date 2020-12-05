@@ -14,10 +14,6 @@ public class DrawPanelControllerAdapter implements Job2dDriver {
 
 	private DrawPanelController drawerController = DrawerFeature.getDrawerController();
 
-	public DrawPanelControllerAdapter() {
-		super();
-	}
-
 	@Override
 	public void setPosition(int x, int y) {
 		this.startX = x;
