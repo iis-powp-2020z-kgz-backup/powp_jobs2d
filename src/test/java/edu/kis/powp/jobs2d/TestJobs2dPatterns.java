@@ -8,7 +8,9 @@ import java.util.logging.Logger;
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
-import edu.kis.powp.jobs2d.drivers.adapter.MyAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.FigureDrawerAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.FigureDrawerAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
@@ -27,6 +29,7 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
+		application.addTest("Figure Joe 2", selectTestFigureOptionListener);
 	}
 
 	/**
@@ -39,8 +42,11 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new MyAdapter();
+		Job2dDriver testDriver = new FigureDrawerAdapter();
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
+
+		Job2dDriver myDriver = new LineDrawerAdapter();
+		DriverFeature.addDriver("Personal Simulator", myDriver);
 
 		DriverFeature.updateDriverInfo();
 	}
@@ -79,19 +85,17 @@ public class TestJobs2dPatterns {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				Application app = new Application("2d jobs Visio");
-				DrawerFeature.setupDrawerPlugin(app);
-				setupDefaultDrawerVisibilityManagement(app);
+		EventQueue.invokeLater(() -> {
+			Application app = new Application("2d jobs Visio");
+			DrawerFeature.setupDrawerPlugin(app);
+			setupDefaultDrawerVisibilityManagement(app);
 
-				DriverFeature.setupDriverPlugin(app);
-				setupDrivers(app);
-				setupPresetTests(app);
-				setupLogger(app);
+			DriverFeature.setupDriverPlugin(app);
+			setupDrivers(app);
+			setupPresetTests(app);
+			setupLogger(app);
 
-				app.setVisibility(true);
-			}
+			app.setVisibility(true);
 		});
 	}
 
