@@ -6,14 +6,14 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
 
 /**
- * driver adapter to drawer: BasicLine
+ * driver adapter to drawer: SpecialLine
  */
-public class DrawPanelConrollerAdapter implements Job2dDriver {
+public class LineDrawerAdapter implements Job2dDriver {
 	
 	private int startX = 0, startY = 0;
 	private DrawPanelController drawPanelController;
 	
-	public DrawPanelConrollerAdapter(DrawPanelController argDrawPanelController) {
+	public LineDrawerAdapter(DrawPanelController argDrawPanelController) {
 		super();
 		drawPanelController = argDrawPanelController;
 	}
@@ -26,7 +26,7 @@ public class DrawPanelConrollerAdapter implements Job2dDriver {
 
 	@Override
 	public void operateTo(int x, int y) {
-		ILine line = LineFactory.getBasicLine();
+		ILine line = LineFactory.getSpecialLine();
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 
@@ -36,6 +36,6 @@ public class DrawPanelConrollerAdapter implements Job2dDriver {
 
 	@Override
 	public String toString() {
-		return "BasicLine! @Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "SpecialLine! @Q!$!@$!#@$(*#@&Q(%^*#@";
 	}
 }
