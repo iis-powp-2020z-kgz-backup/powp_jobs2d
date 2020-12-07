@@ -10,9 +10,10 @@ public class SpecialLineDrawerDriver implements Job2dDriver {
     private int startX = 0, startY = 0;
     private final DrawPanelController drawPanelController;
 
-    public SpecialLineDrawerDriver(DrawPanelController drawPanelController) {
+    public SpecialLineDrawerDriver() {
         super();
-        this.drawPanelController = drawPanelController;
+        this.drawPanelController = DrawerFeature.getDrawerController();
+
     }
 
     @Override
@@ -24,6 +25,7 @@ public class SpecialLineDrawerDriver implements Job2dDriver {
     @Override
     public void operateTo(int x, int y) {
         ILine line = LineFactory.getSpecialLine();
+
         line.setStartCoordinates(this.startX, this.startY);
         line.setEndCoordinates(x, y);
         drawPanelController.drawLine(line);

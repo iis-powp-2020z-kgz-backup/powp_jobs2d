@@ -13,9 +13,9 @@ public class StandardLineDrawerDriver implements Job2dDriver {
 	private int startX = 0, startY = 0;
 
 	private final DrawPanelController drawPanelController;
-	public StandardLineDrawerDriver(DrawPanelController drawPanelController) {
+	public StandardLineDrawerDriver() {
 		super();
-		this.drawPanelController = drawPanelController;
+		this.drawPanelController = DrawerFeature.getDrawerController();
 	}
 
 	@Override
