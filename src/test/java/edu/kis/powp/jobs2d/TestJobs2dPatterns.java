@@ -10,7 +10,8 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.DriverAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
+import edu.kis.powp.jobs2d.events.Figure1Generator;
+import edu.kis.powp.jobs2d.events.Figure2Generator;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 
@@ -23,10 +24,16 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
+		Figure1Generator figure1Generator = new Figure1Generator(
 				DriverFeature.getDriverManager());
 
-		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
+		application.addTest("Figure Joe 1", figure1Generator);
+
+
+		Figure2Generator figure2Generator = new Figure2Generator(
+				DriverFeature.getDriverManager());
+
+		application.addTest("Figure Joe 2", figure2Generator);
 	}
 
 	/**
