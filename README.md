@@ -3,7 +3,7 @@
 ## instrukcje
 
 * powp-lab-adapter.pdf - Zapoznanie z projektem i warianty wzorca *adapter*
-* powp-lab-command.pdf - Zastosowanie wzorca *command* i innych...
+* powp-lab-edu.kis.powp.jobs2d.drivers.command.pdf - Zastosowanie wzorca *edu.kis.powp.jobs2d.drivers.command* i innych...
 
 ## dokumentacja do bibliotek 
 
