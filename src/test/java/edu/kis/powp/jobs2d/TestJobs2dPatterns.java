@@ -13,6 +13,7 @@ import edu.kis.powp.jobs2d.drivers.adapter.Job2dToSimulatorDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
+import edu.kis.powp.jobs2d.events.SelectTestCommandOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 import edu.kis.powp.jobs2d.util.ExtendedLineFactory;
@@ -26,6 +27,7 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
+		//FigureJoe1 tests
 		SelectTestFigureOptionListener selectTestFigureOptionListener_FigureJoe1 = new SelectTestFigureOptionListener(
 			DriverFeature.getDriverManager(), new TestFigureScripts.FigureJoe1());
 		SelectTestFigureOptionListener selectTestFigureOptionListener_FigureJoe2 = new SelectTestFigureOptionListener(
@@ -33,6 +35,15 @@ public class TestJobs2dPatterns {
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener_FigureJoe1);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener_FigureJoe2);
+
+		//Command tests
+		SelectTestCommandOptionListener commandTestsMenuOptionListener_Square = new SelectTestCommandOptionListener(
+			DriverFeature.getDriverManager(), new TestFigureCommands.CommandSquare());
+		SelectTestCommandOptionListener commandTestsMenuOptionListener_Triangle = new SelectTestCommandOptionListener(
+			DriverFeature.getDriverManager(), new TestFigureCommands.CommandTriangle());
+
+		application.addTest("Command - Square", commandTestsMenuOptionListener_Square);
+		application.addTest("Command - Triangle", commandTestsMenuOptionListener_Triangle);
 	}
 
 	/**
