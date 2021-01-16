@@ -1,5 +1,6 @@
 package edu.kis.powp.jobs2d;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
@@ -7,8 +8,10 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
-import edu.kis.powp.jobs2d.drivers.adapter.Job2dToSimulatorAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.Job2dToSimulatorDriverAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
@@ -24,7 +27,7 @@ public class TestJobs2dPatterns {
 	 */
 	private static void setupPresetTests(Application application) {
 		SelectTestFigureOptionListener selectTestFigureOptionListener_FigureJoe1 = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), new TestFigureScripts.FigureJoe1());
+			DriverFeature.getDriverManager(), new TestFigureScripts.FigureJoe1());
 		SelectTestFigureOptionListener selectTestFigureOptionListener_FigureJoe2 = new SelectTestFigureOptionListener(
 			DriverFeature.getDriverManager(), new TestFigureScripts.FigureJoe2());
 
@@ -42,8 +45,14 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver testDriver = new Job2dToSimulatorAdapter(DrawerFeature.getDrawerController());
+		Job2dDriver testDriver = new Job2dToSimulatorDriverAdapter(DrawerFeature.getDrawerController());
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
+
+		Job2dDriver testDriver_special = new LineDrawerAdapter(DrawerFeature.getDrawerController(), LineFactory.getSpecialLine());
+		DriverFeature.addDriver("Special Line Simulator", testDriver_special);
+		
+		Job2dDriver testDriver_dotted = new LineDrawerAdapter(DrawerFeature.getDrawerController(), LineFactory.getDottedLine());
+		DriverFeature.addDriver("Dotted Line Simulator", testDriver_dotted);
 
 		DriverFeature.updateDriverInfo();
 	}
