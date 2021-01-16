@@ -2,7 +2,6 @@ package edu.kis.powp.jobs2d;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,12 +10,9 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.Job2dToSimulatorAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.Job2dToLineDrawerAdapter;
-import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener2;
+import edu.kis.powp.jobs2d.events.*;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
-import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -27,13 +23,19 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener(
+		SelectTestFigure1OptionListener selectTestFigure1OptionListener = new SelectTestFigure1OptionListener(
 				DriverFeature.getDriverManager());
-		SelectTestFigureOptionListener2 selectTestFigure2OptionListener2 = new SelectTestFigureOptionListener2(
+		SelectTestFigure2OptionListener selectTestFigure2OptionListener = new SelectTestFigure2OptionListener(
+				DriverFeature.getDriverManager());
+		SelectTestFigure3OptionListener selectTestFigure3OptionListener = new SelectTestFigure3OptionListener(
+				DriverFeature.getDriverManager());
+		SelectTestFigure4OptionListener selectTestFigure4OptionListener = new SelectTestFigure4OptionListener(
 				DriverFeature.getDriverManager());
 
-		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
-		application.addTest("Figure Joe 2", selectTestFigure2OptionListener2);
+		application.addTest("Figure Joe 1", selectTestFigure1OptionListener);
+		application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
+		application.addTest("Figure Command 3", selectTestFigure3OptionListener);
+		application.addTest("Figure Command 4", selectTestFigure4OptionListener);
 	}
 
 	/**
