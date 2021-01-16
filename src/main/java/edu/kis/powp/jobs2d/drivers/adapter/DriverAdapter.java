@@ -27,7 +27,7 @@ public class DriverAdapter implements Job2dDriver {
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 
-		setPosition(x,y);
+		setPosition(x, y);
 		DrawerFeature.getDrawerController().drawLine(line);
 	}
 
