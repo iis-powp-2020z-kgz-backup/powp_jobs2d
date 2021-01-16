@@ -10,13 +10,13 @@ public class TestFigureCommands {
 
     public static class CommandSquare implements CommandTemplate {
         public void invoke(Job2dDriver driver) {
-            FigureCommandFactory.getSquareCommand(driver).execute();
+            FigureCommandFactory.getSquareCommand().execute(driver);
         }
     }
 
     public static class CommandTriangle implements CommandTemplate {
         public void invoke(Job2dDriver driver) {
-            FigureCommandFactory.getTriangleCommand(driver).execute();
+            FigureCommandFactory.getTriangleCommand().execute(driver);
         }
     }
 }
