@@ -1,21 +1,19 @@
 package edu.kis.powp.jobs2d.drivers.command;
 
-import edu.kis.powp.jobs2d.drivers.adapter.DriverAdapter;
+import edu.kis.powp.jobs2d.Job2dDriver;
 
 public class SetPositionCommand implements DriverCommand {
-   
+
     private int x;
     private int y;
 
-    DriverAdapter device;
-
-    public SetPositionCommand(DriverAdapter device) {
-        this.device = device;
-
+    public SetPositionCommand(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     @Override
-    public void execute() {
+    public void execute(Job2dDriver device) {
         device.setPosition(x, y);
     }
 
