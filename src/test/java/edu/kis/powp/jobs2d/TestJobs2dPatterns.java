@@ -10,7 +10,10 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.Job2dFigureDrawerAdapterDriver;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
+import edu.kis.powp.jobs2d.events.TriangleGenerator;
 import edu.kis.powp.jobs2d.events.FirstFigureGenerator;
+import edu.kis.powp.jobs2d.events.PlusSignGenerator;
+import edu.kis.powp.jobs2d.events.RectangleGenerator;
 import edu.kis.powp.jobs2d.events.SecondFigureGenerator;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
@@ -26,13 +29,23 @@ public class TestJobs2dPatterns {
 	private static void setupPresetTests(Application application) {
 		FirstFigureGenerator firstFigureGenerator = new FirstFigureGenerator(
 				DriverFeature.getDriverManager());
-
 		application.addTest("Figure Joe 1", firstFigureGenerator);
 
 		SecondFigureGenerator secondFigureGenerator = new SecondFigureGenerator(
 				DriverFeature.getDriverManager());
-
 		application.addTest("Figure Joe 2", secondFigureGenerator);
+
+		RectangleGenerator rectangleGenerator = new RectangleGenerator(
+			DriverFeature.getDriverManager());
+		application.addTest("Rectangle", rectangleGenerator);
+
+		TriangleGenerator triangleGenerator = new TriangleGenerator(
+			DriverFeature.getDriverManager());
+		application.addTest("Triangle", triangleGenerator);
+
+		PlusSignGenerator plusSignGenerator = new PlusSignGenerator(
+			DriverFeature.getDriverManager());
+		application.addTest("Plus Sign", plusSignGenerator);
 	}
 
 	/**
