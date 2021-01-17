@@ -6,12 +6,9 @@ import edu.kis.powp.jobs2d.drivers.command.FigureFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+public class TestDrawTriangleCommand implements ActionListener {
 
-
-
-public class TestDrawTriangleCommand implements ActionListener{
-    
-    private DriverManager driverManager;
+	private DriverManager driverManager;
 
 	public TestDrawTriangleCommand(DriverManager driverManager) {
 		this.driverManager = driverManager;
@@ -19,6 +16,6 @@ public class TestDrawTriangleCommand implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-        FigureFactory.drawTriangle().execute(driverManager.getCurrentDriver());
+		FigureFactory.drawTriangle().execute(driverManager.getCurrentDriver());
 	}
 }

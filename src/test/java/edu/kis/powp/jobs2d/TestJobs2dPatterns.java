@@ -40,7 +40,7 @@ public class TestJobs2dPatterns {
 
 		TestDrawTriangleCommand triangleCommand = new TestDrawTriangleCommand(DriverFeature.getDriverManager());
 		application.addTest("Triangle", triangleCommand);
-		
+
 		TestDrawRectangleCommand rectangleCommand = new TestDrawRectangleCommand(DriverFeature.getDriverManager());
 		application.addTest("Rectangle", rectangleCommand);
 

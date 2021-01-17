@@ -6,12 +6,9 @@ import edu.kis.powp.jobs2d.drivers.command.FigureFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+public class TestDrawSquareCommand implements ActionListener {
 
-
-
-public class TestDrawSquareCommand implements ActionListener{
-    
-    private DriverManager driverManager;
+	private DriverManager driverManager;
 
 	public TestDrawSquareCommand(DriverManager driverManager) {
 		this.driverManager = driverManager;
@@ -19,6 +16,6 @@ public class TestDrawSquareCommand implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-        FigureFactory.drawSquare().execute(driverManager.getCurrentDriver());
+		FigureFactory.drawSquare().execute(driverManager.getCurrentDriver());
 	}
 }
