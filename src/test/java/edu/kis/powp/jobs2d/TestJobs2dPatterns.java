@@ -10,6 +10,9 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.DriverAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
+import edu.kis.powp.jobs2d.events.TestDrawRectangleCommand;
+import edu.kis.powp.jobs2d.events.TestDrawSquareCommand;
+import edu.kis.powp.jobs2d.events.TestDrawTriangleCommand;
 import edu.kis.powp.jobs2d.events.Figure1Generator;
 import edu.kis.powp.jobs2d.events.Figure2Generator;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
@@ -24,16 +27,23 @@ public class TestJobs2dPatterns {
 	 * @param application Application context.
 	 */
 	private static void setupPresetTests(Application application) {
-		Figure1Generator figure1Generator = new Figure1Generator(
-				DriverFeature.getDriverManager());
+		Figure1Generator figure1Generator = new Figure1Generator(DriverFeature.getDriverManager());
 
 		application.addTest("Figure Joe 1", figure1Generator);
 
-
-		Figure2Generator figure2Generator = new Figure2Generator(
-				DriverFeature.getDriverManager());
+		Figure2Generator figure2Generator = new Figure2Generator(DriverFeature.getDriverManager());
 
 		application.addTest("Figure Joe 2", figure2Generator);
+
+		TestDrawSquareCommand squareCommand = new TestDrawSquareCommand(DriverFeature.getDriverManager());
+		application.addTest("Square", squareCommand);
+
+		TestDrawTriangleCommand triangleCommand = new TestDrawTriangleCommand(DriverFeature.getDriverManager());
+		application.addTest("Triangle", triangleCommand);
+		
+		TestDrawRectangleCommand rectangleCommand = new TestDrawRectangleCommand(DriverFeature.getDriverManager());
+		application.addTest("Rectangle", rectangleCommand);
+
 	}
 
 	/**
