@@ -15,6 +15,10 @@ import edu.kis.powp.jobs2d.events.FigureGeneratorTestTwo;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 
+import edu.kis.powp.jobs2d.events.TestDrawRectangleCommand;
+import edu.kis.powp.jobs2d.events.TestDrawSquareCommand;
+import edu.kis.powp.jobs2d.events.TestDrawTriangleCommand;
+
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -33,6 +37,16 @@ public class TestJobs2dPatterns {
 
 		application.addTest("Figure Joe 1", figureGeneratorTest);
 		application.addTest("Figure Joe 2", figureGeneratorTestTwo);
+
+		TestDrawSquareCommand squareCommand = new TestDrawSquareCommand(DriverFeature.getDriverManager());
+		application.addTest("Square", squareCommand);
+
+		TestDrawTriangleCommand triangleCommand = new TestDrawTriangleCommand(DriverFeature.getDriverManager());
+		application.addTest("Triangle", triangleCommand);
+
+		TestDrawRectangleCommand rectangleCommand = new TestDrawRectangleCommand(DriverFeature.getDriverManager());
+		application.addTest("Rectangle", rectangleCommand);
+
 	}
 
 	/**
