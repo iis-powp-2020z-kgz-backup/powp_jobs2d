@@ -2,7 +2,7 @@ package edu.kis.powp.jobs2d.drivers.command;
 import edu.kis.powp.jobs2d.Job2dDriver;
 
 
-class SetPositionCommand implements DriverCommand
+public class SetPositionCommand implements DriverCommand
 {
     private int x;
     private int y;

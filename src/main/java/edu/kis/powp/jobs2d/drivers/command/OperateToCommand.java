@@ -1,22 +1,24 @@
 package edu.kis.powp.jobs2d.drivers.command;
-import  edu.kis.powp.jobs2d.drivers.adapter.DriverAdapter2dSimulator;
+import edu.kis.powp.jobs2d.Job2dDriver;
 
-class OperateToCommand implements DriverCommand
+
+public class OperateToCommand implements DriverCommand
 {
     private int x;
     private int y;
 
-    DriverAdapter2dSimulator DriverAdapter;
+   
 
-    public OperateToCommand (DriverAdapter2dSimulator DriverAdapter)
+    public OperateToCommand (int x, int y)
     {
-        this.DriverAdapter = DriverAdapter;
+        this.x = x;
+        this.y = y;
     }
 
     @Override
-    public void execute() 
+    public void execute(Job2dDriver driver) 
     { 
-        DriverAdapter.operateTo(x, y);
+        driver.operateTo(x, y);
     } 
 
 }
